@@ -1,47 +1,259 @@
-🎬 Terminal ASCII Video Player
-Version 2.0.0
-A powerful Python-based CLI tool that transforms videos into real-time ASCII art. Whether it's a local .mp4 or a link from YouTube, X (Twitter), or Twitch, this tool renders every frame directly in your Windows terminal.
-✨ Features
-Interactive Menu: Browse and select local .mp4 files using your arrow keys.
-Multi-Platform Support: Paste a URL to download and play videos from YouTube, Twitch, X, and more (via yt-dlp).
-Auto-Detection: Automatically adapts to your terminal's width and height.
-Smooth Playback: Optimized frame rendering with pause/resume support and real-time FPS syncing.
-Windows Optimized: Built specifically for the Windows console with colorama and msvcrt support.
-🚀 Quick Start
-1. Prerequisites
-OS: Windows 10 or later.
-Python: 3.7 or higher.
-FFmpeg (Optional): Highly recommended for better video quality and audio merging.
-2. Installation
-Clone the repository and install the required dependencies:
-powershell
-pip install yt-dlp opencv-python Pillow colorama
-Use code with caution.
+Terminal ASCII Video Player
 
-3. Running the Tool
-Simply run the script to enter the interactive menu:
-powershell
+Interactive CLI tool to play local and online videos directly in your Windows terminal as real-time ASCII art.
+
+📄 Source File: vidterm.py
+🔎 Referenced implementation:
+
+Introduction
+
+Terminal ASCII Video Player is a Windows-only interactive command-line application that converts video frames into ASCII characters and renders them in real time inside your terminal.
+
+It supports:
+
+🎬 Local .mp4 files
+
+🌐 Online videos (YouTube, X/Twitter, Twitch, Instagram, TikTok, etc.)
+
+⚙️ Interactive video settings
+
+⏸ Pause / Resume
+
+🎨 Grayscale ramp mode or Pure @ artistic mode
+
+Built with:
+
+opencv-python
+
+Pillow
+
+yt-dlp
+
+colorama
+
+numpy
+
+Table of Contents
+
+Features
+
+Installation
+
+Usage
+
+Controls
+
+Settings Explained
+
+Dependencies
+
+Project Structure
+
+How It Works
+
+Troubleshooting
+
+License
+
+Features
+
+🎞 Converts video frames to ASCII in real time
+
+📁 Auto-detects local MP4 files in current directory
+
+🌍 Downloads videos via yt-dlp
+
+🎚 Adjustable quality (360p–1080p / best)
+
+🖥 Dynamic terminal resizing support
+
+⏯ Pause/resume during playback
+
+🎨 Two ASCII modes:
+
+Detailed grayscale ramp
+
+Pure @ character mode
+
+🧵 Multithreaded keyboard listener
+
+🪟 Optimized for Windows terminal (uses msvcrt)
+
+Installation
+1️⃣ Clone or Download
+
+Place vidterm.py in your desired directory.
+
+2️⃣ Install Python Dependencies
+pip install yt-dlp opencv-python Pillow colorama numpy
+3️⃣ (Recommended) Install FFmpeg
+
+FFmpeg improves quality and enables video/audio merging.
+
+Install via Chocolatey:
+
+choco install ffmpeg
+Usage
+
+Run the script:
+
 python vidterm.py
-Use code with caution.
+Flow:
 
-🎮 Controls
+Select a local MP4 file OR
+
+Download from URL
+
+Adjust settings
+
+Play video as ASCII art in your terminal
+
+Controls
+In Video Selection Menu
 Key	Action
-UP / DOWN	Navigate the file menu
-ENTER	Select file / Confirm setting
-SPACE	Pause / Resume playback
-Q / ESC	Quit player or Exit application
-🛠️ Configuration
-The tool offers several internal settings to customize your experience:
-Quality Selection: Choose between 360p, 480p, 720p, 1080p, or best.
-ASCII Ramps:
-Simple: Uses only @ characters.
-Gradient: Uses a 10-character ramp .:-=+*#%@ for better detail.
-Aspect Correction: Automatically compensates for terminal character height-to-width ratios.
-📦 Requirements & Dependencies
-yt-dlp: For handling video downloads.
-opencv-python: For frame extraction and grayscale processing.
-Pillow: For high-quality image resizing and downscaling.
-colorama: For ANSI escape sequences on Windows.
-📝 License
-This project is open-source. Feel free to fork, modify, and improve it!
-Pro Tip: For the best visual experience, use a font like Consolas or Courier New in your terminal and reduce the font size to allow for higher "resolution" ASCII art.
+↑ / ↓	Navigate
+Enter	Select video
+D	Download from URL
+Q / ESC	Exit
+During Playback
+Key	Action
+Space	Pause / Resume
+Q / ESC	Quit playback
+Settings Explained
+🎥 Quality
+
+Options:
+
+360p
+
+480p
+
+720p
+
+1080p
+
+best
+
+If FFmpeg is installed, best video+audio streams are merged.
+
+Without FFmpeg, fallback to single-file format.
+
+📐 Aspect Ratio
+
+Controls vertical scaling of ASCII output.
+
+Value Range	Effect
+0.30–0.40	Wide output
+0.45	Default (balanced)
+0.55–0.65	Good for fullscreen
+0.70–0.95	Tall / maximum height
+
+Tip: For 1440p fullscreen, try 0.70–0.95.
+
+🎨 Pure @ Mode
+
+OFF → Detailed grayscale ramp:
+
+ .:-=+*#%@
+
+ON → Only @ characters (artistic look)
+
+Dependencies
+
+Required Python packages:
+
+yt-dlp
+
+opencv-python
+
+Pillow
+
+numpy
+
+colorama
+
+Standard library modules used:
+
+threading
+
+tempfile
+
+pathlib
+
+shutil
+
+msvcrt
+
+time
+
+sys
+
+os
+
+Project Structure
+vidterm.py
+
+Main components:
+
+VideoDownloader – Handles URL downloads via yt-dlp
+
+FrameConverter – Converts video frames to ASCII
+
+TerminalRenderer – Handles terminal rendering
+
+PlaybackState – Thread-safe playback state
+
+VideoSelector – Interactive file selection
+
+SettingsMenu – Interactive settings editor
+
+Player – Core playback engine
+
+How It Works
+
+Video is opened via OpenCV (cv2.VideoCapture)
+
+Each frame is:
+
+Converted to grayscale
+
+Resized based on terminal dimensions
+
+Mapped to ASCII characters
+
+Frame is rendered with ANSI escape codes
+
+Keyboard input is handled in a background thread
+
+Playback sync is maintained using frame timing
+
+Troubleshooting
+❌ "Missing required package"
+
+Install dependencies:
+
+pip install yt-dlp opencv-python Pillow colorama numpy
+❌ Download fails
+
+Install FFmpeg:
+
+choco install ffmpeg
+
+Ensure URL is supported by yt-dlp
+
+❌ "This tool is designed for Windows"
+
+This project uses msvcrt and is currently Windows-only.
+
+⚠ Video looks squashed or stretched
+
+Adjust the Aspect Ratio setting.
+
+License
+
+No license specified in the source file.
+You may add one depending on your distribution needs (e.g., MIT, Apache 2.0, GPL).
+
+Version
+
+2.0.0
