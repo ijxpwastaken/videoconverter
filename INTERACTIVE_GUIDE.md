@@ -37,6 +37,7 @@ Options:
 ```
 
 **Controls:**
+
 - **↑/↓** — Move cursor up/down to select video
 - **Enter** — Play the selected video
 - **D** — Download video from YouTube/X/Twitch/etc
@@ -66,6 +67,7 @@ Controls:
 ```
 
 **Controls:**
+
 - **↑/↓** —
   - When on **Quality**: navigate (left/right to change)
   - When on **Aspect Ratio**: adjust value (0.2 to 0.8)
@@ -91,6 +93,7 @@ The aspect ratio controls how tall the ASCII characters appear:
 **Arrow Keys:** Use ↑/↓ to increment/decrement by 0.02
 
 Example:
+
 - Start at 0.45
 - Press ↑ four times → 0.53 (closer to fullscreen)
 - Press ↓ once → 0.51 (fine-tune)
@@ -138,6 +141,7 @@ While in the video selector:
 5. Press **Enter** to download and play
 
 **Supported Sites:**
+
 - ✅ YouTube
 - ✅ X (Twitter)
 - ✅ Twitch
@@ -163,6 +167,7 @@ Playing...
 ```
 
 **Controls During Playback:**
+
 - **Space** — Pause / Resume
 - **Q** — Stop and go back to menu
 - **ESC** — Stop and go back to menu
@@ -214,18 +219,22 @@ Press any key → Back to video selector → Play another video or adjust settin
 ## Troubleshooting
 
 **Q: "No MP4 files found"**
+
 - A: Put MP4 files in the same folder as vidterm.py
 - Or press D to download from URL
 
 **Q: "Aspect ratio not filling my 1440p screen"**
+
 - A: In settings, go to "Aspect Ratio" and press ↑ several times
 - Try 0.55 to 0.65 for fullscreen
 - Use arrow keys (↑/↓) to fine-tune
 
 **Q: "Downloaded file won't play"**
+
 - A: Make sure ffmpeg is installed: `choco install ffmpeg`
 
 **Q: "Download stuck"**
+
 - A: Press Q and try again
 - Or download lower quality: Select 360p or 480p
 
@@ -234,6 +243,7 @@ Press any key → Back to video selector → Play another video or adjust settin
 ## Keyboard Cheat Sheet
 
 ### Video Selector
+
 ```
 ↑/↓     Navigate videos
 Enter   Play selected
@@ -242,6 +252,7 @@ Q       Quit
 ```
 
 ### Settings Menu
+
 ```
 ↑/↓     Navigate or adjust aspect ratio
 ←/→     Change quality
@@ -251,6 +262,7 @@ Q       Back to video list
 ```
 
 ### During Playback
+
 ```
 Space   Pause / Resume
 Q       Quit

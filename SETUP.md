@@ -48,9 +48,13 @@ Replace the URL with an actual YouTube, X (Twitter), or Twitch video.
 ## Features
 
 ✅ **Download & Play** — Supports YouTube, X (Twitter), Twitch, and any yt-dlp-compatible site
+
 ✅ **ASCII Art** — Converts every frame pixel into "@" characters (or grayscale ramp)
+
 ✅ **Auto-Detect** — Automatically sizes to your terminal
+
 ✅ **Pause/Resume** — Press SPACE to pause, SPACE again to resume
+
 ✅ **Controls** — Q or ESC to quit
 
 ---
@@ -58,11 +62,13 @@ Replace the URL with an actual YouTube, X (Twitter), or Twitch video.
 ## Usage Examples
 
 ### Basic Usage
+
 ```powershell
 python vidterm.py "https://www.youtube.com/watch?v=video_id"
 ```
 
 ### Specify Quality
+
 ```powershell
 python vidterm.py "https://www.youtube.com/watch?v=video_id" --quality 720p
 ```
@@ -70,11 +76,13 @@ python vidterm.py "https://www.youtube.com/watch?v=video_id" --quality 720p
 Available qualities: `360p`, `480p` (default), `720p`, `1080p`, `best`
 
 ### Pure @ Mode (No Grayscale)
+
 ```powershell
 python vidterm.py "https://www.youtube.com/watch?v=video_id" --pure-at
 ```
 
 ### Play Local Video File
+
 ```powershell
 python vidterm.py "https://www.youtube.com/watch?v=video_id" --no-download "C:\path\to\video.mp4"
 ```
@@ -98,12 +106,14 @@ python vidterm.py --no-download "C:\path\to\video.mp4"
 ## Troubleshooting
 
 ### "Missing required packages"
+
 Install them:
 ```powershell
 pip install yt-dlp opencv-python Pillow colorama
 ```
 
 ### "Download failed" for X (Twitter) videos
+
 Some X videos may require authentication. Test with:
 ```powershell
 yt-dlp --cookies-from-browser chrome "https://x.com/user/status/..."
@@ -112,12 +122,14 @@ yt-dlp --cookies-from-browser chrome "https://x.com/user/status/..."
 Then run the tool normally.
 
 ### Video plays too slowly
+
 Use a lower quality:
 ```powershell
 python vidterm.py "URL" --quality 360p
 ```
 
 ### Terminal looks garbled
+
 Make sure your terminal supports ANSI escape codes (Windows 10+, modern PowerShell, or Terminal).
 
 ---
