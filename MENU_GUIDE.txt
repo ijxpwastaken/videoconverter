@@ -1,0 +1,148 @@
+═══════════════════════════════════════════════════════════════════════════════
+  NEW MENU SYSTEM - VISUAL GUIDE
+═══════════════════════════════════════════════════════════════════════════════
+
+STEP 1: Run the tool
+────────────────────
+
+  python vidterm.py
+
+STEP 2: Video Selector (First Menu)
+────────────────────────────────────
+
+  Shows all MP4 files in your folder:
+
+  ▶ 1. my_video.mp4 (245.3 MB)
+    2. another_video.mp4 (156.2 MB)
+    3. trailer.mp4 (89.1 MB)
+
+  Use ↑/↓ arrows to move the ▶ cursor
+  Press Enter to select
+  Press D to download from URL
+  Press Q to quit
+
+STEP 3: Settings Menu (NEW!)
+─────────────────────────────
+
+  ▶ 1. Quality: 480p
+    2. Aspect Ratio: 0.45
+    3. Pure @ Mode: OFF
+
+  ↑/↓ arrows to SELECT a setting (moves the ▶)
+  Press Enter to EDIT the selected setting
+  Press Q to go back
+
+STEP 4a: Edit Quality
+──────────────────────
+
+  When you press Enter on "Quality", you get:
+
+  ▶ 360p
+    480p
+    720p
+    1080p
+    best
+
+  Use ↑/↓ to move the ▶ cursor
+  Press Enter to confirm selection
+  Press ESC or Q to cancel
+
+  ↑/↓ arrows only move the cursor here!
+  (They don't go back to settings menu)
+
+STEP 4b: Edit Aspect Ratio
+────────────────────────────
+
+  When you press Enter on "Aspect Ratio", you get:
+
+  Current: 0.45
+
+  Aspect Ratio Guide:
+    0.30 - 0.40  = Wide (many columns)
+    0.45         = Default
+    0.55         = ⭐ FULLSCREEN FOR 1440P
+    0.60+        = Very tall (many rows)
+
+  Controls:
+    ↑            Increase (+0.02)
+    ↓            Decrease (-0.02)
+    Enter        Confirm
+    ESC / Q      Cancel
+
+  ↑/↓ arrows ONLY adjust the number here!
+  (They don't navigate the menu)
+
+STEP 4c: Edit Pure @ Mode
+───────────────────────────
+
+  When you press Enter on "Pure @ Mode", you get:
+
+  ▶ OFF - Grayscale ramp (more detail)
+    ON  - Pure @ characters only (artistic)
+
+  Use ↑/↓ or Space to toggle
+  Press Enter to confirm
+  Press ESC or Q to cancel
+
+  ↑/↓ arrows ONLY toggle here!
+  (They don't navigate the menu)
+
+STEP 5: Back to Settings
+─────────────────────────
+
+  After editing any setting, you're back to:
+
+  ▶ 1. Quality: 480p          ← Your changes are saved!
+    2. Aspect Ratio: 0.55     ← Updated!
+    3. Pure @ Mode: ON        ← Updated!
+
+  You can edit another setting or press Enter to play
+
+═══════════════════════════════════════════════════════════════════════════════
+
+WHY THIS IS BETTER:
+───────────────────
+
+BEFORE (Confusing):
+  - ↑/↓ navigates settings AND adjusts aspect ratio
+  - Can't tell if you're changing menus or values
+  - Mixing navigation with adjustment
+
+NOW (Clear):
+  - ↑/↓ selects which setting (in main menu)
+  - Press Enter to edit THAT setting
+  - In edit mode, arrows do ONLY ONE thing
+  - No confusion!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+EXAMPLE WORKFLOW:
+─────────────────
+
+1. python vidterm.py
+2. ↓ to select second video
+3. Enter to play it
+4. Settings menu appears
+5. ↓ ↓ to move cursor to "Aspect Ratio"
+6. Enter to edit Aspect Ratio
+7. ↑ ↑ ↑ to increase from 0.45 to 0.51
+8. Enter to save
+9. Back to settings (still at Aspect Ratio line)
+10. Enter to start playing
+
+═══════════════════════════════════════════════════════════════════════════════
+
+FFMPEG NOTE:
+────────────
+
+If you see: "FFmpeg not found. Using fallback quality."
+
+  → Install with: choco install ffmpeg
+  → Then restart vidterm.py
+
+Without FFmpeg:
+  - Video quality is limited
+  - Download takes longer
+  - But it still works!
+
+═══════════════════════════════════════════════════════════════════════════════

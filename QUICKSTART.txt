@@ -1,0 +1,108 @@
+═══════════════════════════════════════════════════════════════════════════════
+  TERMINAL ASCII VIDEO PLAYER — QUICK START GUIDE
+═══════════════════════════════════════════════════════════════════════════════
+
+1. INSTALL PYTHON (Windows PowerShell as Administrator)
+   ────────────────────────────────────────────────────
+
+   choco install python
+
+   (or install Chocolatey first if you don't have it)
+
+
+2. INSTALL DEPENDENCIES
+   ────────────────────
+
+   pip install yt-dlp opencv-python Pillow colorama
+
+   (Optional: choco install ffmpeg  for better quality)
+
+
+3. RUN THE TOOL
+   ────────────
+
+   python vidterm.py "https://www.youtube.com/watch?v=XXXXXXXXXXX"
+
+   Replace the URL with a real video link!
+
+
+4. KEYBOARD CONTROLS
+   ──────────────────
+
+   SPACE   →  Pause / Resume
+   Q/ESC   →  Quit
+
+
+5. COMMAND-LINE OPTIONS
+   ─────────────────────
+
+   --quality 480p       Choose video quality (360p, 480p, 720p, 1080p, best)
+   --pure-at            Use only @ characters (no grayscale ramp)
+   --no-download FILE   Play local video file instead
+
+
+6. EXAMPLES
+   ────────
+
+   YouTube Video:
+   python vidterm.py "https://www.youtube.com/watch?v=XXXXXXXXXXX"
+
+   Twitter/X Video:
+   python vidterm.py "https://x.com/user/status/000000000"
+
+   Twitch VOD:
+   python vidterm.py "https://www.twitch.tv/videos/000000000"
+
+   Lower Quality (faster for slow machines):
+   python vidterm.py "URL" --quality 360p
+
+   Play Local File:
+   python vidterm.py --no-download "C:\path\to\video.mp4"
+
+
+7. TROUBLESHOOTING
+   ────────────────
+
+   Q: "Python was not found"
+   A: Install via: choco install python
+
+   Q: "Missing required packages"
+   A: Run: pip install yt-dlp opencv-python Pillow colorama
+
+   Q: "Video plays slowly"
+   A: Use: python vidterm.py "URL" --quality 360p
+
+   Q: "Cannot open video file"
+   A: Install ffmpeg: choco install ffmpeg
+
+   Q: "X (Twitter) video won't download"
+   A: Test first: yt-dlp --cookies-from-browser chrome "X_URL"
+
+
+8. FILES
+   ─────
+
+   vidterm.py       Main application (~750 lines of Python)
+   vidterm.bat      Windows batch launcher
+   README.md        Full documentation
+   SETUP.md         Detailed setup guide
+   QUICKSTART.txt   This file
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  FEATURES
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ Download from 1000+ sites (YouTube, Twitter/X, Twitch, etc.)
+✓ Convert video pixels to @ characters in real-time
+✓ Auto-detect terminal size
+✓ Pause/resume with SPACE
+✓ No flicker—smooth playback
+✓ Status bar with time and frame count
+✓ Auto-cleanup temp files
+✓ Windows 10+ support
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  ENJOY! 🎬
+═══════════════════════════════════════════════════════════════════════════════

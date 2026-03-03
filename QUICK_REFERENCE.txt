@@ -1,0 +1,171 @@
+═══════════════════════════════════════════════════════════════════════════════
+  TERMINAL ASCII VIDEO PLAYER - QUICK REFERENCE (v2.0)
+═══════════════════════════════════════════════════════════════════════════════
+
+🚀 RUN THIS:
+   python vidterm.py
+
+That's it! Everything else is interactive menus with arrow keys.
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 1: VIDEO SELECTOR
+───────────────────────────────────────────────────────────────────────────────
+
+Shows all MP4 files in current folder.
+
+Controls:
+  ↑/↓ Down   = Select video
+  Enter      = Play selected
+  D          = Download from URL
+  Q          = Exit
+
+───────────────────────────────────────────────────────────────────────────────
+SCREEN 2: SETTINGS
+───────────────────────────────────────────────────────────────────────────────
+
+Three settings to adjust:
+
+  1. Quality: 360p | 480p | 720p | 1080p | best
+     Use ←/→ arrows to change
+
+  2. Aspect Ratio: 0.20 to 0.80 (use ↑/↓ to adjust)
+     ⭐ For 1440p fullscreen: try 0.55
+     💡 Use arrow keys to fine-tune (0.02 per step)
+
+  3. Pure @ Mode: ON | OFF (press Space to toggle)
+     OFF = detailed grayscale
+     ON  = only @ characters
+
+Controls:
+  ↑/↓        = Navigate settings or adjust aspect ratio
+  ←/→        = Change quality
+  Space      = Toggle Pure @
+  Enter      = Play video
+  Q          = Back to video list
+
+───────────────────────────────────────────────────────────────────────────────
+PLAYBACK (During Video)
+───────────────────────────────────────────────────────────────────────────────
+
+Controls:
+  Space      = Pause / Resume
+  Q or ESC   = Stop and go back to menu
+
+Status bar at bottom shows:
+  00:45/03:30  Frame 1350/5400  [SPACE=pause Q=quit]
+
+───────────────────────────────────────────────────────────────────────────────
+ASPECT RATIO GUIDE (for 1440p screens)
+───────────────────────────────────────────────────────────────────────────────
+
+Terminal characters are ~2.2× taller than wide. Aspect ratio fixes this:
+
+  0.30 - 0.40  = Super wide (many columns, few rows)
+  0.45         = Default balanced
+  0.55         = ⭐ FULLSCREEN FOR 1440P (more rows)
+  0.60+        = Very tall (many rows, thin)
+
+Use ↑/↓ arrows to adjust by 0.02 each step.
+
+Workflow:
+  1. Go to "Aspect Ratio" setting
+  2. Press ↑ to increase (taller)
+  3. Press ↓ to decrease (wider)
+  4. Watch the preview as you adjust
+  5. When it looks good, press Enter to play
+
+───────────────────────────────────────────────────────────────────────────────
+SETUP (ONE TIME ONLY)
+───────────────────────────────────────────────────────────────────────────────
+
+PowerShell as Administrator:
+
+  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+  & "C:\Users\IJXP\why\install.ps1"
+
+Or manually:
+  pip install yt-dlp opencv-python Pillow colorama
+  choco install ffmpeg  (optional, for better quality)
+
+───────────────────────────────────────────────────────────────────────────────
+USAGE EXAMPLES
+───────────────────────────────────────────────────────────────────────────────
+
+Just run:
+  python vidterm.py
+
+Then:
+  1. Arrow keys to select video
+  2. Enter to play
+  3. Adjust aspect ratio (try 0.55 for 1440p!)
+  4. Enter to start
+  5. Space to pause
+  6. After video, press any key to go back to menu
+
+To download from URL:
+  1. Press D on video selector
+  2. Paste URL (YouTube, X, Twitch, etc.)
+  3. Adjust settings
+  4. Press Enter
+
+───────────────────────────────────────────────────────────────────────────────
+FEATURES
+───────────────────────────────────────────────────────────────────────────────
+
+✓ Local MP4 files or download from URL
+✓ Works with 1000+ sites (YouTube, X, Twitch, TikTok, Instagram, etc.)
+✓ Interactive menu system - no command-line arguments needed!
+✓ Arrow key controls for everything
+✓ Real-time aspect ratio adjustment
+✓ Auto-detects terminal size
+✓ Pause/resume with spacebar
+✓ No flicker - smooth ASCII playback
+✓ Windows 10+ support
+
+───────────────────────────────────────────────────────────────────────────────
+TROUBLESHOOTING
+───────────────────────────────────────────────────────────────────────────────
+
+"No MP4 files found"
+  → Put .mp4 files in same folder as vidterm.py
+  → Or press D to download from URL
+
+"Doesn't fill my 1440p screen"
+  → Go to Aspect Ratio setting
+  → Press ↑ to increase (try 0.55-0.65)
+  → Press Enter to play
+
+"Video plays slowly"
+  → Change Quality to 360p
+  → Close other apps
+
+"FFmpeg not detected"
+  → Run: choco install ffmpeg
+  → Or try without it (lower quality)
+
+"Settings not working"
+  → Make sure you have Python 3.7+
+  → Check: python --version
+  → Reinstall packages: pip install --upgrade yt-dlp opencv-python Pillow colorama
+
+───────────────────────────────────────────────────────────────────────────────
+KEYBOARD SUMMARY
+───────────────────────────────────────────────────────────────────────────────
+
+Video Selector:
+  ↑/↓  Select    D Download    Enter Play    Q Quit
+
+Settings:
+  ↑/↓  Navigate/Adjust    ←/→ Change Quality    Space Toggle Pure @
+  Enter Play    Q Back
+
+Playback:
+  Space Pause/Resume    Q/ESC Stop
+
+───────────────────────────────────────────────────────────────────────────────
+
+Just run: python vidterm.py
+
+Enjoy! 🎬
+
+═══════════════════════════════════════════════════════════════════════════════
