@@ -1,6 +1,8 @@
 ﻿# Terminal ASCII Video Player
 <img width="2543" height="1369" alt="image" src="https://github.com/user-attachments/assets/bc3ecf80-083c-496a-a18a-ed00ab2fb0ac" />
 # Credit To Rick Astley For Video
+
+
 Version: 2.0.0
 
 A Windows-focused Python CLI that plays local videos or downloaded videos as real-time ASCII art in your terminal.
