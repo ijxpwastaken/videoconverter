@@ -1,259 +1,125 @@
-Terminal ASCII Video Player
+﻿# Terminal ASCII Video Player
 
-Interactive CLI tool to play local and online videos directly in your Windows terminal as real-time ASCII art.
+Version: 2.0.0
 
-📄 Source File: vidterm.py
-🔎 Referenced implementation:
+A Windows-focused Python CLI that plays local videos or downloaded videos as real-time ASCII art in your terminal.
 
-Introduction
+It supports local `.mp4` playback, plus URL downloads through `yt-dlp` (YouTube, X/Twitter, Twitch, and many other supported sites).
 
-Terminal ASCII Video Player is a Windows-only interactive command-line application that converts video frames into ASCII characters and renders them in real time inside your terminal.
+## What It Does
 
-It supports:
+- Scans the current folder for local `.mp4` files.
+- Lets you choose a video using an interactive arrow-key menu.
+- Lets you tune playback settings before starting.
+- Downloads and plays URL videos through `yt-dlp`.
+- Renders frames as ASCII in real time with pause/resume controls.
 
-🎬 Local .mp4 files
+## Requirements
 
-🌐 Online videos (YouTube, X/Twitter, Twitch, Instagram, TikTok, etc.)
+- Windows 10 or newer.
+- Python 3.7+.
+- Python packages:
 
-⚙️ Interactive video settings
+  - `yt-dlp`
+  - `opencv-python`
+  - `Pillow`
+  - `colorama`
 
-⏸ Pause / Resume
+- Optional but recommended:
 
-🎨 Grayscale ramp mode or Pure @ artistic mode
+  - FFmpeg (improves format handling and quality selection for downloads)
 
-Built with:
+## Install
 
-opencv-python
+```powershell
+pip install yt-dlp opencv-python Pillow colorama
+```
 
-Pillow
+Optional FFmpeg install (Chocolatey):
 
-yt-dlp
-
-colorama
-
-numpy
-
-Table of Contents
-
-Features
-
-Installation
-
-Usage
-
-Controls
-
-Settings Explained
-
-Dependencies
-
-Project Structure
-
-How It Works
-
-Troubleshooting
-
-License
-
-Features
-
-🎞 Converts video frames to ASCII in real time
-
-📁 Auto-detects local MP4 files in current directory
-
-🌍 Downloads videos via yt-dlp
-
-🎚 Adjustable quality (360p–1080p / best)
-
-🖥 Dynamic terminal resizing support
-
-⏯ Pause/resume during playback
-
-🎨 Two ASCII modes:
-
-Detailed grayscale ramp
-
-Pure @ character mode
-
-🧵 Multithreaded keyboard listener
-
-🪟 Optimized for Windows terminal (uses msvcrt)
-
-Installation
-1️⃣ Clone or Download
-
-Place vidterm.py in your desired directory.
-
-2️⃣ Install Python Dependencies
-pip install yt-dlp opencv-python Pillow colorama numpy
-3️⃣ (Recommended) Install FFmpeg
-
-FFmpeg improves quality and enables video/audio merging.
-
-Install via Chocolatey:
-
+```powershell
 choco install ffmpeg
-Usage
+```
 
-Run the script:
+## Run
 
+```powershell
 python vidterm.py
-Flow:
+```
 
-Select a local MP4 file OR
+No arguments are required.
 
-Download from URL
+## Interactive Flow
 
-Adjust settings
+1. Video selector opens.
+2. Choose a local `.mp4` file or select download-from-URL.
+3. Settings menu opens.
+4. Configure quality, aspect ratio, and pure `@` mode.
+5. Start playback.
 
-Play video as ASCII art in your terminal
+## Controls
 
-Controls
-In Video Selection Menu
-Key	Action
-↑ / ↓	Navigate
-Enter	Select video
-D	Download from URL
-Q / ESC	Exit
-During Playback
-Key	Action
-Space	Pause / Resume
-Q / ESC	Quit playback
-Settings Explained
-🎥 Quality
+### Video Selector
 
-Options:
+- Up/Down: move selection.
+- Enter: select item.
+- D: download from URL.
+- Q or Esc: exit.
 
-360p
+### Settings Menu
 
-480p
+- Up/Down: navigate settings.
+- Enter: edit selected setting.
+- Q or Esc: back.
 
-720p
+### During Playback
 
-1080p
+- Space: pause/resume.
+- Q or Esc: stop and return to menu.
 
-best
+## Settings
 
-If FFmpeg is installed, best video+audio streams are merged.
+- Quality: `360p`, `480p`, `720p`, `1080p`, `best`.
+- Aspect ratio: adjustable (default: `0.45`).
+- Pure `@` mode: toggles between grayscale ramp and only `@` characters.
 
-Without FFmpeg, fallback to single-file format.
+## Troubleshooting
 
-📐 Aspect Ratio
-
-Controls vertical scaling of ASCII output.
-
-Value Range	Effect
-0.30–0.40	Wide output
-0.45	Default (balanced)
-0.55–0.65	Good for fullscreen
-0.70–0.95	Tall / maximum height
-
-Tip: For 1440p fullscreen, try 0.70–0.95.
-
-🎨 Pure @ Mode
-
-OFF → Detailed grayscale ramp:
-
- .:-=+*#%@
-
-ON → Only @ characters (artistic look)
-
-Dependencies
-
-Required Python packages:
-
-yt-dlp
-
-opencv-python
-
-Pillow
-
-numpy
-
-colorama
-
-Standard library modules used:
-
-threading
-
-tempfile
-
-pathlib
-
-shutil
-
-msvcrt
-
-time
-
-sys
-
-os
-
-Project Structure
-vidterm.py
-
-Main components:
-
-VideoDownloader – Handles URL downloads via yt-dlp
-
-FrameConverter – Converts video frames to ASCII
-
-TerminalRenderer – Handles terminal rendering
-
-PlaybackState – Thread-safe playback state
-
-VideoSelector – Interactive file selection
-
-SettingsMenu – Interactive settings editor
-
-Player – Core playback engine
-
-How It Works
-
-Video is opened via OpenCV (cv2.VideoCapture)
-
-Each frame is:
-
-Converted to grayscale
-
-Resized based on terminal dimensions
-
-Mapped to ASCII characters
-
-Frame is rendered with ANSI escape codes
-
-Keyboard input is handled in a background thread
-
-Playback sync is maintained using frame timing
-
-Troubleshooting
-❌ "Missing required package"
+### Missing package error
 
 Install dependencies:
 
-pip install yt-dlp opencv-python Pillow colorama numpy
-❌ Download fails
+```powershell
+pip install yt-dlp opencv-python Pillow colorama
+```
+
+### FFmpeg warning or lower quality downloads
 
 Install FFmpeg:
 
+```powershell
 choco install ffmpeg
+```
 
-Ensure URL is supported by yt-dlp
+### No local videos listed
 
-❌ "This tool is designed for Windows"
+Put `.mp4` files in the same folder as `vidterm.py`.
 
-This project uses msvcrt and is currently Windows-only.
+### Slow playback
 
-⚠ Video looks squashed or stretched
+- Lower quality to `360p`.
+- Reduce terminal size.
+- Close heavy background apps.
 
-Adjust the Aspect Ratio setting.
+## Project Files
 
-License
+- `vidterm.py`: main application.
+- `vidterm.bat`: batch launcher.
+- `install.ps1`: setup helper script.
+- `SETUP.md`: setup guide.
+- `INTERACTIVE_GUIDE.md`: menu walkthrough.
+- `QUICKSTART.txt` / `QUICK_REFERENCE.txt`: quick usage notes.
 
-No license specified in the source file.
-You may add one depending on your distribution needs (e.g., MIT, Apache 2.0, GPL).
+## License
 
-Version
-
-2.0.0
+MIT
